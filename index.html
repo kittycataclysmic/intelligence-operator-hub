@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Intelligence Operator — Margin &amp; Momentum™</title>
+  <meta name="description" content="Three 30-day courses. One Lean Six Sigma methodology. One credential — the Intelligence Operator: Complete Stack." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--deep:#0E0D0C;--ink:#1A1714;--surface:#1E1C19;--rule:rgba(237,233,227,0.1);--rule-mid:rgba(237,233,227,0.06);--fog:#EDE9E3;--ash:#D9D4CE;--steel:#6B7280;--muted:#A09A95;--nav-h:64px;--c1:#7C9A92;--c2:#9A8C7C;--c3:#7C8A9A}
+    html{scroll-behavior:smooth}
+    body{background:var(--ink);color:var(--muted);font-family:'Libre Baskerville',Georgia,serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{color:inherit}
+
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:100;height:var(--nav-h);background:rgba(14,13,12,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;padding:0 48px;gap:24px}
+    .nav-wordmark{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--fog);text-decoration:none;display:flex;align-items:center;gap:12px;white-space:nowrap;flex-shrink:0}
+    .nav-wordmark span{color:var(--steel);font-size:9px;letter-spacing:0.18em}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none;flex-wrap:wrap}
+    .nav-links a{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--steel);text-decoration:none;transition:color 0.2s;white-space:nowrap}
+    .nav-links a:hover{color:var(--fog)}
+
+    /* UTILS */
+    .tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--steel);display:flex;align-items:center;gap:10px;margin-bottom:20px}
+    .tag::before{content:'';display:block;width:24px;height:1px;background:var(--steel);flex-shrink:0}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity 0.5s ease,transform 0.5s ease}
+    .reveal.vis{opacity:1;transform:translateY(0)}
+
+    /* HERO */
+    .hero{padding:100px 0 80px;border-bottom:1px solid var(--rule);position:relative;overflow:hidden}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--rule-mid) 1px,transparent 1px),linear-gradient(90deg,var(--rule-mid) 1px,transparent 1px);background-size:80px 80px;pointer-events:none}
+    .hero-inner{max-width:1100px;margin:0 auto;padding:0 48px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;position:relative}
+    .hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,8vw,120px);line-height:0.92;letter-spacing:0.02em;color:var(--fog)}
+    .hero-sub{font-size:15px;line-height:1.85;color:var(--muted);margin-bottom:24px;max-width:420px}
+    .hero-badge{display:inline-flex;align-items:center;gap:10px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--steel);border:1px solid var(--rule);padding:10px 16px}
+    .hero-dot{width:5px;height:5px;border-radius:50%;background:var(--fog);opacity:0.4;flex-shrink:0}
+
+    /* TRILOGY */
+    .trilogy{padding:80px 0;border-bottom:1px solid var(--rule)}
+    .trilogy-inner{max-width:1100px;margin:0 auto;padding:0 48px;display:grid;grid-template-columns:280px 1fr;gap:80px;align-items:start}
+    .stat-box{border:1px solid var(--rule);padding:40px;text-align:center}
+    .stat-num{display:block;font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,6vw,80px);line-height:1;color:var(--fog);letter-spacing:0.02em;margin-bottom:12px}
+    .stat-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--steel);line-height:2.2}
+    .trilogy-body h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,54px);line-height:1;letter-spacing:0.02em;color:var(--fog);margin-bottom:24px}
+    .trilogy-body p{font-size:15px;line-height:1.85;color:var(--muted);margin-bottom:16px}
+    .trilogy-body p:last-child{margin-bottom:0}
+
+    /* COURSES */
+    .courses{padding:80px 0;border-bottom:1px solid var(--rule)}
+    .section-hd{max-width:1100px;margin:0 auto 48px;padding:0 48px}
+    .courses-grid{max-width:1100px;margin:0 auto;padding:0 48px;display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--rule);background:var(--rule);gap:1px}
+    .course-card{background:var(--ink);padding:48px 36px;display:flex;flex-direction:column;position:relative;transition:background 0.2s}
+    .course-card:hover{background:var(--surface)}
+    .course-accent{position:absolute;top:0;left:0;right:0;height:3px}
+    .course-live{position:absolute;top:20px;right:20px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.2em;text-transform:uppercase;padding:5px 10px;color:var(--c1);border:1px solid rgba(124,154,146,0.3);background:rgba(124,154,146,0.06)}
+    .course-num{font-family:'Bebas Neue',sans-serif;font-size:52px;line-height:1;letter-spacing:0.04em;margin-bottom:16px;margin-top:8px}
+    .course-title{font-family:'Libre Baskerville',serif;font-size:16px;font-weight:700;color:var(--fog);line-height:1.35;margin-bottom:14px}
+    .course-desc{font-size:14px;line-height:1.8;color:var(--muted);flex:1;margin-bottom:24px}
+    .course-meta{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--steel);margin-bottom:16px;padding-top:20px;border-top:1px solid var(--rule)}
+    .course-price{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:0.02em;color:var(--fog);line-height:1;margin-bottom:20px}
+    .course-btn{display:inline-block;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;padding:13px 24px;text-decoration:none;background:var(--fog);color:var(--deep);transition:opacity 0.2s;width:fit-content}
+    .course-btn:hover{opacity:0.85}
+
+    /* INSIDE */
+    .inside{padding:80px 0;border-bottom:1px solid var(--rule)}
+    .inside-grid{max-width:1100px;margin:0 auto;padding:0 48px;display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--rule)}
+    .inside-col{padding:40px;border-right:1px solid var(--rule)}
+    .inside-col:last-child{border-right:none}
+    .inside-col-num{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:0.12em;margin-bottom:16px}
+    .inside-col-title{font-family:'Libre Baskerville',serif;font-size:13px;font-weight:700;color:var(--fog);margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--rule);line-height:1.4}
+    .module{padding:12px 0;border-bottom:1px solid var(--rule-mid)}
+    .module:last-child{border-bottom:none}
+    .module-days{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.18em;text-transform:uppercase;color:var(--steel);margin-bottom:3px}
+    .module-title{font-size:12px;color:var(--muted);line-height:1.5}
+
+    /* STACK */
+    .stack{padding:80px 0;border-bottom:1px solid var(--rule)}
+    .stack-inner{max-width:1100px;margin:0 auto;padding:0 48px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .stack-box{border:1px solid rgba(237,233,227,0.15);padding:48px;position:relative}
+    .stack-box::before{content:'COMPLETE STACK';position:absolute;top:-1px;left:32px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.22em;color:var(--fog);background:var(--ink);padding:0 12px;transform:translateY(-50%)}
+    .stack-price{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,6vw,68px);line-height:1;color:var(--fog);letter-spacing:0.02em;margin-bottom:4px}
+    .stack-savings{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--steel);margin-bottom:28px}
+    .stack-courses{display:flex;flex-direction:column;gap:12px;padding:20px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:24px}
+    .stack-row{display:flex;align-items:center;gap:12px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
+    .stack-row:hover{color:var(--fog)}
+    .stack-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+    .stack-note{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;color:var(--steel);line-height:1.9;border-left:2px solid var(--rule);padding-left:16px}
+    .stack-note strong{color:var(--muted);font-weight:500}
+    .stack-right h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,4vw,50px);line-height:1;letter-spacing:0.02em;color:var(--fog);margin-bottom:20px}
+    .stack-right p{font-size:15px;line-height:1.85;color:var(--muted);margin-bottom:16px}
+    .stack-right p:last-child{margin-bottom:0}
+
+    /* PRICING */
+    .pricing{padding:80px 0;border-bottom:1px solid var(--rule)}
+    .pricing-hd{max-width:1100px;margin:0 auto 48px;padding:0 48px}
+    .pricing-hd h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,62px);line-height:1;letter-spacing:0.02em;color:var(--fog);margin-bottom:12px}
+    .pricing-hd p{font-size:15px;line-height:1.8;color:var(--muted);max-width:520px;font-style:italic}
+    .pricing-rows{max-width:1100px;margin:0 auto;padding:0 48px}
+    .tier{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start;padding:36px 0;border-bottom:1px solid var(--rule)}
+    .tier:first-child{border-top:1px solid var(--rule)}
+    .tier-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--steel);margin-bottom:10px}
+    .tier-price{font-family:'Bebas Neue',sans-serif;font-size:38px;line-height:1;letter-spacing:0.02em;color:var(--fog);margin-bottom:4px}
+    .tier-per{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--steel)}
+    .tier-desc{font-size:14px;line-height:1.8;color:var(--muted)}
+    .tier-desc strong{color:var(--ash);font-weight:700}
+    .pricing-footer{max-width:1100px;margin:0 auto;padding:28px 48px 0;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;color:var(--steel);line-height:2}
+    .pricing-footer a{color:var(--muted);text-decoration:underline}
+    .pricing-footer a:hover{color:var(--fog)}
+
+    /* FOOTER */
+    .footer{padding:56px 0;border-top:1px solid var(--rule)}
+    .footer-inner{max-width:1100px;margin:0 auto;padding:0 48px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+    .footer-wm{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--fog)}
+    .footer-wm span{display:block;font-size:9px;color:var(--steel);letter-spacing:0.18em;margin-top:4px}
+    .footer-links{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+    .footer-link{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--steel);text-decoration:none;transition:color 0.2s}
+    .footer-link:hover{color:var(--fog)}
+    .footer-built{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--steel)}
+    .footer-built a{color:var(--muted);text-decoration:underline;transition:color 0.2s}
+    .footer-built a:hover{color:var(--fog)}
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      .nav{padding:0 32px}
+      .hero-inner,.trilogy-inner,.courses-grid,.inside-grid,.stack-inner,.pricing-rows,.pricing-hd,.pricing-footer,.section-hd,.footer-inner{padding-left:32px;padding-right:32px}
+      .courses-grid{grid-template-columns:1fr}
+      .inside-grid{grid-template-columns:1fr}
+      .inside-col{border-right:none;border-bottom:1px solid var(--rule)}
+      .inside-col:last-child{border-bottom:none}
+      .stack-inner{grid-template-columns:1fr}
+      .trilogy-inner{grid-template-columns:1fr}
+      .tier{grid-template-columns:200px 1fr}
+      .hero-inner{grid-template-columns:1fr;gap:48px}
+    }
+    @media(max-width:768px){
+      .nav{padding:0 20px}
+      .nav-links{display:none}
+      .hero,.trilogy,.courses,.inside,.stack,.pricing{padding:56px 0}
+      .hero-inner,.trilogy-inner,.courses-grid,.inside-grid,.stack-inner,.pricing-rows,.pricing-hd,.pricing-footer,.section-hd,.footer-inner{padding-left:20px;padding-right:20px}
+      .tier{grid-template-columns:1fr;gap:12px}
+      .stack-box{padding:32px 24px}
+      .footer-inner{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="https://marginmomentum.co" class="nav-wordmark">
+    Margin &amp; Momentum™ <span>The Intelligence Operator</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="https://marginmomentum.co">← Main Hub</a></li>
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#complete-stack">Complete Stack</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="reveal">
+      <div class="tag">The Intelligence Operator</div>
+      <h1 class="hero-title">Three<br>Courses.<br>One<br>Credential.</h1>
+    </div>
+    <div class="reveal">
+      <p class="hero-sub">The Intelligence Operator is a three-course professional certification built for Filipino virtual assistants who are done operating at Level 1. Each course is 30 days, 30 labs, one lab per day. Lean Six Sigma methodology woven through every single one.</p>
+      <p class="hero-sub">Complete all three and earn the credential that does not exist anywhere else in this market — the Intelligence Operator: Complete Stack.</p>
+      <div class="hero-badge"><span class="hero-dot"></span>Reviewed &amp; issued by The Systems Architect<span class="hero-dot"></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="trilogy">
+  <div class="trilogy-inner">
+    <div class="stat-box reveal">
+      <span class="stat-num">90</span>
+      <span class="stat-label">Days.<br>90 Labs.<br>One Stack.</span>
+    </div>
+    <div class="trilogy-body reveal">
+      <div class="tag">Why Three Courses</div>
+      <h2>The Trilogy Is a System, Not a Sequence.</h2>
+      <p>Course 01 builds your intelligence layer — the knowledge architecture, the analytical frameworks, the client deliverable system. Course 02 builds your operations layer — autonomous workflows, constitutional reasoning, systems that run without your constant presence. Course 03 builds your product layer — Custom GPTs, Code Interpreter data intelligence, and client-facing AI products your clients use directly.</p>
+      <p>Each course stands alone and earns its own certification. Together they constitute a documented, practitioner-reviewed AI operations practice that no single course — in this market or any other — currently offers at this level of specificity, methodology, and accountability.</p>
+    </div>
+  </div>
+</section>
+
+<section class="courses" id="courses">
+  <div class="section-hd reveal"><div class="tag">The Courses</div></div>
+  <div class="courses-grid">
+
+    <div class="course-card reveal">
+      <div class="course-accent" style="background:#7C9A92"></div>
+      <span class="course-live">Live Now</span>
+      <div class="course-num" style="color:#7C9A92">01</div>
+      <div class="course-title">Mastering Gemini AI &amp; NotebookLM</div>
+      <p class="course-desc">Source-grounded intelligence architecture. The Knowledge Fortress. Client-grade analysis and deliverables — built on Lean Six Sigma methodology woven through every lab.</p>
+      <div class="course-meta">30 Days · 30 Labs · 5 Logic-Check Checkpoints · LSS Lens Every Lab</div>
+      <div class="course-price">2,999 PHP</div>
+      <a href="https://intelligenceoperator001.marginmomentum.co/" target="_blank" rel="noreferrer" class="course-btn">Enroll in Course 01 →</a>
+    </div>
+
+    <div class="course-card reveal">
+      <div class="course-accent" style="background:#9A8C7C"></div>
+      <span class="course-live">Live Now</span>
+      <div class="course-num" style="color:#9A8C7C">02</div>
+      <div class="course-title">Mastering Claude &amp; Cowork</div>
+      <p class="course-desc">Autonomous operations. Constitutional reasoning. AI systems designed to run without your constant presence — so your practice scales beyond your available hours.</p>
+      <div class="course-meta">30 Days · 30 Labs · 5 Logic-Check Checkpoints · LSS Lens Every Lab</div>
+      <div class="course-price">2,999 PHP</div>
+      <a href="https://intelligenceoperator002.marginmomentum.co/" target="_blank" rel="noreferrer" class="course-btn">Enroll in Course 02 →</a>
+    </div>
+
+    <div class="course-card reveal">
+      <div class="course-accent" style="background:#7C8A9A"></div>
+      <span class="course-live">Live Now</span>
+      <div class="course-num" style="color:#7C8A9A">03</div>
+      <div class="course-title">Mastering ChatGPT</div>
+      <p class="course-desc">Custom GPT architecture. Code Interpreter data intelligence. Client-facing AI products your clients use directly — without requiring your presence in every interaction.</p>
+      <div class="course-meta">30 Days · 30 Labs · 5 Logic-Check Checkpoints · LSS Lens Every Lab</div>
+      <div class="course-price">2,999 PHP</div>
+      <a href="https://intelligenceoperator003.marginmomentum.co/" target="_blank" rel="noreferrer" class="course-btn">Enroll in Course 03 →</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="inside">
+  <div class="section-hd reveal"><div class="tag">What's Inside Each Course</div></div>
+  <div class="inside-grid">
+
+    <div class="inside-col reveal">
+      <div class="inside-col-num" style="color:#7C9A92">Course 01</div>
+      <div class="inside-col-title">Mastering Gemini AI &amp; NotebookLM</div>
+      <div class="module"><div class="module-days">Day 0</div><div class="module-title">Before You Begin</div></div>
+      <div class="module"><div class="module-days">Days 1–4</div><div class="module-title">Intelligence Foundations</div></div>
+      <div class="module"><div class="module-days">Days 5–9</div><div class="module-title">Prompt Engineering: The Clinical Method</div></div>
+      <div class="module"><div class="module-days">Days 10–14</div><div class="module-title">NotebookLM: Source-Grounded Intelligence</div></div>
+      <div class="module"><div class="module-days">Days 15–19</div><div class="module-title">Data Synthesis &amp; Business Intelligence</div></div>
+      <div class="module"><div class="module-days">Day 20</div><div class="module-title">Operator Profile Lab</div></div>
+      <div class="module"><div class="module-days">Days 21–27</div><div class="module-title">The Operator's Edge Generator</div></div>
+      <div class="module"><div class="module-days">Days 28–30</div><div class="module-title">Capstone: Intelligence Operator Certification</div></div>
+    </div>
+
+    <div class="inside-col reveal">
+      <div class="inside-col-num" style="color:#9A8C7C">Course 02</div>
+      <div class="inside-col-title">Mastering Claude &amp; Cowork</div>
+      <div class="module"><div class="module-days">Day 0</div><div class="module-title">Before You Begin</div></div>
+      <div class="module"><div class="module-days">Days 1–4</div><div class="module-title">Claude Foundations</div></div>
+      <div class="module"><div class="module-days">Days 5–9</div><div class="module-title">Advanced Document Intelligence</div></div>
+      <div class="module"><div class="module-days">Days 10–14</div><div class="module-title">Cowork: Autonomous Operations Architecture</div></div>
+      <div class="module"><div class="module-days">Days 15–19</div><div class="module-title">Autonomous Workflow Operations</div></div>
+      <div class="module"><div class="module-days">Day 20</div><div class="module-title">Operator Profile Lab</div></div>
+      <div class="module"><div class="module-days">Days 21–27</div><div class="module-title">The Autonomous Operator's Edge</div></div>
+      <div class="module"><div class="module-days">Days 28–30</div><div class="module-title">Capstone: Autonomous Operator Certification</div></div>
+    </div>
+
+    <div class="inside-col reveal">
+      <div class="inside-col-num" style="color:#7C8A9A">Course 03</div>
+      <div class="inside-col-title">Mastering ChatGPT</div>
+      <div class="module"><div class="module-days">Day 0</div><div class="module-title">Before You Begin</div></div>
+      <div class="module"><div class="module-days">Days 1–4</div><div class="module-title">ChatGPT Foundations</div></div>
+      <div class="module"><div class="module-days">Days 5–9</div><div class="module-title">Custom GPT Architecture</div></div>
+      <div class="module"><div class="module-days">Days 10–14</div><div class="module-title">Code Interpreter &amp; Data Intelligence</div></div>
+      <div class="module"><div class="module-days">Days 15–19</div><div class="module-title">GPT Deployment &amp; Client Products</div></div>
+      <div class="module"><div class="module-days">Day 20</div><div class="module-title">Operator Profile Lab</div></div>
+      <div class="module"><div class="module-days">Days 21–27</div><div class="module-title">The AI Product Builder's Edge</div></div>
+      <div class="module"><div class="module-days">Days 28–30</div><div class="module-title">Capstone: Complete Stack Certification</div></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="stack" id="complete-stack">
+  <div class="stack-inner">
+    <div class="stack-box reveal">
+      <div class="stack-price">6,999 PHP</div>
+      <div class="stack-savings">Saves 2,007 PHP vs. individual purchase</div>
+      <div class="stack-courses">
+        <a href="https://intelligenceoperator001.marginmomentum.co/" target="_blank" rel="noreferrer" class="stack-row">
+          <span class="stack-dot" style="background:#7C9A92"></span>Course 01 — Mastering Gemini AI &amp; NotebookLM
+        </a>
+        <a href="https://intelligenceoperator002.marginmomentum.co/" target="_blank" rel="noreferrer" class="stack-row">
+          <span class="stack-dot" style="background:#9A8C7C"></span>Course 02 — Mastering Claude &amp; Cowork
+        </a>
+        <a href="https://intelligenceoperator003.marginmomentum.co/" target="_blank" rel="noreferrer" class="stack-row">
+          <span class="stack-dot" style="background:#7C8A9A"></span>Course 03 — Mastering ChatGPT
+        </a>
+      </div>
+      <p class="stack-note">To enroll in the Complete Stack or inquire about bundle pricing for your tier, message us at <strong>hello@marginmomentum.co</strong></p>
+    </div>
+    <div class="stack-right reveal">
+      <div class="tag">Intelligence Operator: Complete Stack</div>
+      <h2>The Credential at the End of the System.</h2>
+      <p>All three courses. One investment. One credential reviewed and issued by The Systems Architect personally after all three capstone submissions are approved.</p>
+      <p>The Complete Stack is not a shortcut. It is a commitment to building a documented, deployed, practitioner-verified AI operations practice — the kind that commands rates no generalist VA can justify.</p>
+      <p>Every certification in the trilogy is reviewed by hand. None are auto-generated. None are downloadable from the portal. They are issued after Maine has read your work, responded with feedback, and confirmed the standard is met.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="pricing-hd reveal">
+    <div class="tag">Investment Architecture</div>
+    <h2>Priced for Every Stage of the Journey.</h2>
+    <p>The Intelligence Operator is a premium product. It is also a product I refuse to put out of reach. Every tier below is a named, deliberate architectural decision — not a discount, not charity.</p>
+  </div>
+  <div class="pricing-rows">
+
+    <div class="tier reveal">
+      <div><div class="tier-label">Regular</div><div class="tier-price">2,999</div><div class="tier-per">PHP / Course</div></div>
+      <div class="tier-desc">Standard enrollment rate. Open to all operators.</div>
+    </div>
+
+    <div class="tier reveal">
+      <div><div class="tier-label">VALS &amp; Mainframe VA Library Learners</div><div class="tier-price">1,499</div><div class="tier-per">PHP / Course</div></div>
+      <div class="tier-desc">Current or past learners of the VA Launch System or Mainframe VA Library. The foundation earns the rate.</div>
+    </div>
+
+    <div class="tier reveal">
+      <div><div class="tier-label">Lifestyle Architects</div><div class="tier-price">999</div><div class="tier-per">PHP / Course</div></div>
+      <div class="tier-desc">Caregivers, solo parents, stay-at-home parents — building a professional practice around the people who need you most. Your constraints are not disqualifiers. They are the reason this rate exists.</div>
+    </div>
+
+    <div class="tier reveal">
+      <div><div class="tier-label">The Adaptive Operator Tier</div><div class="tier-price">999</div><div class="tier-per">PHP / Course</div></div>
+      <div class="tier-desc">
+        <strong>Working Students</strong> — balancing daily labor with education, architecting the bridge between your current shift and your future career.<br><br>
+        <strong>Neurodivergent Individuals</strong> — deploying AI as a second brain to neutralize the friction of focus. ADHD, Autism. Your output is powered by the systems you build.<br><br>
+        <strong>PWDs</strong> — neutralizing physical and sensory barriers with clinical, digital leverage. Powered by the systems you build, not your energy levels or physical constraints.<br><br>
+        <strong>Seasoned Professionals (50+)</strong> — reclaiming relevance in a digital-first world. Your wisdom is your greatest asset. AI is the engine that scales it.<br><br>
+        <strong>Minimum Wage Breadwinners</strong> — specifically for those earning the provincial rate. You should not have to choose between survival and growth.
+      </div>
+    </div>
+
+  </div>
+  <div class="pricing-footer reveal">
+    All discounted rates are verified manually before access is granted. To enroll at a discounted rate or inquire about bundle pricing for your tier, email <a href="mailto:hello@marginmomentum.co">hello@marginmomentum.co</a>.<br>
+    Every certification is issued by The Systems Architect personally after reviewing your capstone submission. Not auto-generated. Not downloadable. Reviewed, approved, and issued by hand.
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-wm">Margin &amp; Momentum™<span>Systems Over Hustle™</span></div>
+    <div class="footer-links">
+      <a href="https://marginmomentum.co" class="footer-link">← Main Hub</a>
+      <a href="https://app.marginmomentum.co" class="footer-link">VA Launch System</a>
+      <a href="https://valibrary.marginmomentum.co" class="footer-link">Mainframe VA Library</a>
+      <a href="https://systems.marginmomentum.co" class="footer-link">VA Systems Library</a>
+    </div>
+    <div class="footer-built">Designed and issued by <a href="https://founder.marginmomentum.co" target="_blank" rel="noreferrer">The Systems Architect</a></div>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { setTimeout(() => e.target.classList.add('vis'), 80); obs.unobserve(e.target) }
+    })
+  }, { threshold: 0.08 })
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el))
+</script>
+</body>
+</html>
